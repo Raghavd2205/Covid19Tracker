@@ -638,7 +638,7 @@ background: linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b); /* W3C, IE 10+
             </div>
 
             <div id = "sixth2" class = "fs1">
-               <h12 class = "name1" id="tdec2">Total Deceased</h12>
+               <h12 class = "name1" id="tdec2">Last Update</h12>
                 <h13 class = "data1" id ="totaldec2">281000</h13>
 
             </div>
@@ -669,13 +669,14 @@ background: linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b); /* W3C, IE 10+
         var recov = document.getElementById("dailydec1");
         var totalconf = document.getElementById("totalconf2");
         var totaldeath = document.getElementById("totalrec2");
-        var tested = document.getElementById("totaldec2");
+        var last = document.getElementById("totaldec2");
 
         var update = document.getElementById("zx");
         var text = document.getElementById("txt");
         var submit = document.getElementById("submit1");
 
-        var statew = document.getElementById("statew")
+        var statew = document.getElementById("statew");
+        
         const getcoviddata= async() =>{
     
 
@@ -697,7 +698,7 @@ background: linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b); /* W3C, IE 10+
       totalrec.innerText = realdata.cases_time_series[realdata.cases_time_series.length - 1].totalrecovered;
       totaldec.innerText = realdata.cases_time_series[realdata.cases_time_series.length - 1].totaldeceased;
       update.innerText = ` ${realdata.statewise[0].lastupdatedtime}`; 
-
+      
       
     var  xyz = text.value;
     console.log(xyz);
@@ -712,7 +713,8 @@ background: linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b); /* W3C, IE 10+
     recov.innerHTML = realdata.statewise[index].deaths;
     totalconf.innerHTML = realdata.statewise[index].confirmed;
     totaldeath.innerHTML = realdata.statewise[index].recovered;
-    statew.innerText = realdata.statewise[index].state
+    statew.innerText = realdata.statewise[index].state;
+    last.innerHTML = realdata.statewise[index].lastupdatedtime;
       
     }
     catch(error){}
